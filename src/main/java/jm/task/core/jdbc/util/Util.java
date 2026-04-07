@@ -10,11 +10,15 @@ public class Util {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "TestSQL5566!!";
 
-    public static Connection getConnection() {
+    static {
         try {
-            return DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        } catch (SQLException e) {
-            throw new RuntimeException("Ошибка подключения к БД", e);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException("MySQL JDBC Driver not found", e);
         }
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
 }
