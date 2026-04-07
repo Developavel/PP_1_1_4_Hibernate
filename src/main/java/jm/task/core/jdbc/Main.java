@@ -27,7 +27,7 @@ public class Main {
         userService.createUsersTable();
 
         // добавление пользователей
-        userService.saveUser("Иван", "Иванов", (byte) 25);
+        userService.saveUser("Иван", "Иван4ergerов", (byte) 25);
         userService.saveUser("Петр", "Петров", (byte) 30);
         userService.saveUser("Мария", "Сидорова", (byte) 28);
         userService.saveUser("Анна", "Кузнецова", (byte) 22);
