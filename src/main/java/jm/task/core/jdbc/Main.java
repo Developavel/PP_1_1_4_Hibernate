@@ -12,7 +12,7 @@ public class Main {
 
         // создание таблицы
         userService.createUsersTable();
-        System.out.println("Таблица users создана");
+        System.out.println("Таблица users создана\n");
 
         // добавление пользователей
         userService.saveUser("Иван", "Иваныч", (byte) 25);
@@ -21,7 +21,7 @@ public class Main {
         userService.saveUser("Анна", "Кузнецова", (byte) 22);
 
         // получение всех пользователей
-        System.out.println("\nСписок всех пользователей:");
+        System.out.println("\nСписок всех пользователей таблицы users: ");
         List<User> users = userService.getAllUsers();
         for (User user : users) {
             System.out.println(user);
@@ -29,10 +29,10 @@ public class Main {
 
         // очистка таблицы
         userService.cleanUsersTable();
-        System.out.println("\nТаблица users очищена");
+        System.out.println("\nТаблица users очищена\n");
 
         // удаление таблицы
         userService.dropUsersTable();
-        System.out.println("Таблица users удалена");
+        System.out.println("Таблица users удалена\n");
     }
 }

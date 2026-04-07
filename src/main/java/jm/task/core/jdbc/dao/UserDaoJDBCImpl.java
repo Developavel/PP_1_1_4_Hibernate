@@ -24,6 +24,7 @@ public class UserDaoJDBCImpl implements UserDao {
             executor.execute(connection, sql);
 
             connection.commit();
+
         } catch (SQLException e) {
             if (connection != null) {
                 try {
@@ -33,6 +34,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 }
             }
             throw new RuntimeException("Ошибка выполнения операции", e);
+
         } finally {
             if (connection != null) {
                 try {
@@ -83,7 +85,7 @@ public class UserDaoJDBCImpl implements UserDao {
                 pstmt.executeUpdate();
             }
         });
-        System.out.println("User с именем - " + name + " добавлен в базу данных");
+        System.out.println("В таблицу users добавлен новый пользователь: " + name + " " + lastName + ", возраст " + age);
     }
 
     @Override

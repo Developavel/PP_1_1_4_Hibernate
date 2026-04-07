@@ -14,11 +14,19 @@ public class Util {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("MySQL JDBC Driver not found", e);
+            throw new RuntimeException("Не удалось загрузить JDBC драйвер MySQL", e);
         }
     }
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
+
+    public static void main(String[] args) {
+        try (Connection conn = Util.getConnection()) {
+            System.out.println("Подключено к БД: " + conn.getCatalog());
+        } catch (SQLException e) {
+            System.err.println("Ошибка подключения к БД: " + e.getMessage());
+        }
     }
 }
