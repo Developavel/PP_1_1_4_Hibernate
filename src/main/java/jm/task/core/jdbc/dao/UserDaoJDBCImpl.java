@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoJDBCImpl implements UserDao { // Реализация работы с БД через JDBC
+public class  UserDaoJDBCImpl implements UserDao { // Реализация работы с БД через JDBC
     public UserDaoJDBCImpl() {
     }
 
@@ -86,7 +86,7 @@ public class UserDaoJDBCImpl implements UserDao { // Реализация раб
                 preparedStatement.executeUpdate();
             }
         });
-        System.out.println("В таблицу users добавлен новый пользователь: " + name + " " + lastName + ", возраст " + age);
+        System.out.println("User с именем — " + name + " " + lastName + ", добавлен в базу данных");
     }
 
     @Override
