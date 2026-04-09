@@ -14,7 +14,7 @@ public class Main { // Запуск и демонстрация
         userService.createUsersTable();
         System.out.println("Таблица users создана\n");
 
-        userService.saveUser("Иван", "Иваныч", (byte) 25);
+        userService.saveUser("Иваhbgkhbkhbgkhgн", "Иваныч", (byte) 25);
         userService.saveUser("Петр", "Петров", (byte) 30);
         userService.saveUser("Мария", "Сидорова", (byte) 28);
         userService.saveUser("Анна", "Кузнецова", (byte) 22);
