@@ -6,36 +6,35 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import java.util.Objects;
 
-@Entity // сообщаем Hibernate, что это таблица в БД
-@Table(name = "users") // явно указываем имя таблицы
-public class User { // сущность пользователя в таблице users
-    @Id // указываем первичный ключ
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Hibernate автоматически id
-    @Column(name = "id") // явно указываем имя колонки
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name") // явно указываем имя колонки
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "lastName") // явно указываем имя колонки
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "age") // явно указываем имя колонки
+    @Column(name = "age")
     private Byte age;
 
-    public User() { // пустой конструктор для Hibernate (создание объектов через рефлексию)
+    public User() {
     }
 
-    public User(String name, String lastName, Byte age) { // конструктор для нового пользователя (без ID, сгенерируется автоматически)
+    public User(String name, String lastName, Byte age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
     }
 
-    public User(Long id, String name, String lastName, Byte age) { // конструктор для восстановления пользователя из БД (с готовым ID)
+    public User(Long id, String name, String lastName, Byte age) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -74,7 +73,7 @@ public class User { // сущность пользователя в таблиц
         this.age = age;
     }
 
-    @Override // сравниваем пользователей по всем полям (для кеширования в Hibernate)
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,12 +84,12 @@ public class User { // сущность пользователя в таблиц
                 Objects.equals(age, user.age);
     }
 
-    @Override // вычисляем хеш-код на основе всех полей (для коллекций)
+    @Override
     public int hashCode() {
         return Objects.hash(id, name, lastName, age);
     }
 
-    @Override // для читаемого вывода в консоль
+    @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
